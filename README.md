@@ -90,8 +90,7 @@
   <li>Итог №1</li>
   <li>Итог №2</li>
 </ol>
-> <a href="https://github.com/Skyproportfolio/data-analytics-5month/blob/main/Проект%20№1.xlsx">Ссылка на проект</a>
-  (ссылка должна содержать демонстративные материалы: скриншоты, таблички, запросы, код. Работодатель должен иметь возможность быстро посмотреть результаты работы)
+> <a href="https://drive.google.com/drive/folders/1a6LD4CgAJ0TeFYLd_eryfJD6wENd11vE?usp=sharing">Ссылка на проект</a>
 
 ## Контактная информация
 - Email: GenLykovDA@yandex.ru
