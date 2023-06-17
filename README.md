@@ -21,8 +21,12 @@
 </ol>
 
 <p>Краткое описание решения:<p>
-  
- > <a href="[https://drive.google.com/drive/folders/1wdD-mfSeIsHWgrMLJz8Tv_ClAuP_EAOQ?usp=sharing](https://drive.google.com/drive/folders/1a6LD4CgAJ0TeFYLd_eryfJD6wENd11vE?usp=sharing)">Ссылка на проект</a>
+<ol>
+  <li>Определены и рассчитаны метрики поведения пользователей (просмотры, подписки).</li>
+  <li>Рассчитаны бизнес-метрики (повторные оплаты, Retention, LifeTime, CAC, LTV, LTR, маржинальность.</li>
+  <li>Посчитана юнит-экономика продукта и предложены сценарии по настройке параметров для выхода на 25% маржинальность.</li>
+  <li>Собрана визуализация основных бизнес-показателей.</li>
+</ol>
 
 <p>Выводы (итоги):<p>
 <ol>
