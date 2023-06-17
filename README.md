@@ -22,8 +22,7 @@
 
 <p>Краткое описание решения:<p>
 
-> <a href="https://drive.google.com/drive/folders/11HcEeqniyrCMjuwHZ0GLysX0A2SEv-_x">Ссылка на проект</a>
- (ссылка должна содержать демонстративные материалы: скриншоты, таблички, запросы, код. Работодатель должен иметь возможность быстро посмотреть результаты работы)
+> <a href="https://github.com/Gennadiy-Lykov/Portfolio_Data_analytics/tree/a081a75c43685cc677fbb40840245f65aa9d1b27/%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%821">
  
 <p>Выводы (итоги):<p>
 <ol>
