@@ -31,9 +31,9 @@
 
   <p>Выводы и итоги работы по проекту:<p>
 > <a href="https://drive.google.com/drive/folders/1a6LD4CgAJ0TeFYLd_eryfJD6wENd11vE?usp=sharing">Ссылка на проект</a>
-<br> 
+<br>
 
-<br> 
+<br>
 <p>Проект 2: Когортный анализ онлайн-кинотеатра</p>
 <p>Задачи:<p>
 <ol>
@@ -54,6 +54,7 @@
 
   <p>Выводы и итоги работы по проекту:<p>
 > <a href="https://drive.google.com/drive/folders/1a6LD4CgAJ0TeFYLd_eryfJD6wENd11vE?usp=sharing">Ссылка на проект</a>
+<br>
 
 <br>
 <p>Проект 3: Моделирование изменения балансов уроков студентов в онлайн-школе с помощью SQL</p> 
