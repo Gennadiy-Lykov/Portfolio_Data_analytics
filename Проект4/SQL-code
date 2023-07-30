@@ -1,1 +1,105 @@
+-- Задача 1. Исследование выборки
 
+-- Изучаем пустые значения
+select *
+from skyfinance.obligation
+where currency is null
+
+-- Распределение количества облигаций для каждой валюты
+select currency, count(*) as cnt
+from skyfinance.obligation
+where currency is not null
+group by currency
+
+-- Распределение количества облигаций для каждого месяца выпуска облигаций
+select date_trunc('month', issue_date) as issue_month, count(*) as cnt
+from skyfinance.obligation
+where currency is not null
+group by issue_month
+order by issue_month
+
+-- Распределение количества облигаций для каждого срока длительности облигаций
+select length_month, count(*) as cnt
+from skyfinance.obligation
+where currency is not null
+group by length_month
+order by length_month
+
+
+-- Задача 2. Расшифровка типов облигаций
+select a.*, name_oblig
+from skyfinance.obligation a
+left join skyfinance.oblig_dict b
+on a.class = b.id_oblig
+
+
+-- Задача 3. Определение доходности и рискованности
+
+-- Доходность и рискованность по каждой валюте
+select currency, avg(interest_rate) as avg_ir
+from skyfinance.obligation
+where currency is not null
+group by currency
+order by avg_ir
+
+-- Доходность и рискованность по каждому классу облигаций
+select class, avg(interest_rate) as avg_ir
+from skyfinance.obligation
+where currency is not null
+group by class
+order by avg_ir
+
+-- Доходность и рискованность по каждому сегменту “класс-валюта”
+select class, currency, avg(interest_rate) as avg_ir
+from skyfinance.obligation
+where currency is not null
+group by class, currency
+order by avg_ir
+
+
+Задача 4. Пересчет стоимости портфеля в рубли
+select *, length_month * interest_rate * nominal_rub as value
+from
+(select *,
+case when currency = 'USD' and date is not null then nominal_value * exchange_rate_usd
+when currency = 'USD' and date is null then nominal_value * 
+(select avg(exchange_rate_usd) 
+from skyfinance.exchange_rate)
+when currency = 'EUR' and date is not null then nominal_value * exchange_rate_euro
+when currency = 'EUR' and date is null then nominal_value * 
+(select avg(exchange_rate_euro) from skyfinance.exchange_rate)
+when currency = 'YEN' and date is not null then nominal_value * exchange_rate_yen
+when currency = 'YEN' and date is null then nominal_value * 
+(select avg(exchange_rate_yen) from skyfinance.exchange_rate)
+else nominal_value
+end as nominal_rub
+from skyfinance.obligation a
+left join skyfinance.exchange_rate b
+on a.issue_date = b.date
+where currency is not null) t
+
+
+-- Задача 5. Расчет общей доходности
+
+-- Для решения задачи как подзапрос используем запрос для задачи 4
+select sum(value)
+from
+(select *, length_month * interest_rate * nominal_rub as value
+from
+(select *,
+case when currency = 'USD' and date is not null then nominal_value * exchange_rate_usd
+when currency = 'USD' and date is null then nominal_value * 
+(select avg(exchange_rate_usd) from skyfinance.exchange_rate)
+when currency = 'EUR' and date is not null then nominal_value * exchange_rate_euro
+when currency = 'EUR' and date is null then nominal_value * 
+(select avg(exchange_rate_euro) from skyfinance.exchange_rate)
+when currency = 'YEN' and date is not null then nominal_value * exchange_rate_yen
+when currency = 'YEN' and date is null then nominal_value * 
+(select avg(exchange_rate_yen) from skyfinance.exchange_rate)
+else nominal_value
+end as nominal_rub
+from skyfinance.obligation a
+left join skyfinance.exchange_rate b
+on a.issue_date = b.date
+where currency is not null) t
+) p
